@@ -1,0 +1,16 @@
+{
+  "name": "npm_studbud",
+  "version": "1.0.0",
+  "description": "study web app helps users to organise their study schedules",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "planning",
+    "session",
+    "management"
+  ],
+  "author": "Songzhe Liu",
+  "license": "ISC"
+}
