@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>TaskList</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <form id="taskform">
-      <label for="task">Task:</label>
-      <input type="text" name="task" id="taskInput">
 
-      <br>
-    <!-- Date input -->
-      <label for="dueDate">Due Date: </label>
-      <input type="date" name="dueDate" id="dueDateInput">
-      <br>
-    <!-- Time input -->
-    <label for="completionTime">Completion Time: </label>
-      <input type="time" name="completionTime" id="completionTimeInput">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="scss/main.scss" rel="stylesheet" type="text/css">
+</head>
 
-      <br>
+<body class="app-container">
 
-    <label for="estimatedTime">Estimated completion time (in mins):</label>
-    <input type="number" name="estimatedTime" id="estimatedTimeInput">
-    <!-- Priority -->
-    <br>
+  <nav class="top-nav">
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active">Home</a></li>
+        <li class="nav-item"><a href="#page1">Page 1</a></li>
+        <li class="nav-item"><a href="#page2">Page 2</a></li>
+        <li class="nav-item"><a href="#page3">Page 3</a></li>
+      </ul>
+  </nav>
 
-    <label for="priority">Task Priority:</label>
-    <select name="prority" id="priorityInput">
-      <option value="">Select one</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
+  <div id="home" class="page-container">
+    <h1>Hello World Wide Web</h1>
 
-    <br>
+    <p>This time with <a href="https://expressjs.com/">Express</a> + <a href="https://v2.parceljs.org/">Parcel</a> + <a href="https://sass-lang.com/">SASS (SCSS)</a>!</p>
+  </div>
 
-      <button type="submit">Submit</button>
-    </form>
-    <ul id="tasklist">
-    </ul>
-    <script src="script.js"></script>
-    <!-- Swap the scripts to see the working solution -->
-    <!-- <script src="solution.js"></script> -->
-  </body>
+  <div id='page1' class="page-container">
+      <h1>Page 1</h1>
+  </div>
+
+  <div id='page2' class="page-container">
+    <h1>Page 2</h1>
+  </div>
+
+  <div id='page3' class="page-container">
+    <h1>Page 3</h1>
+  </div>
+
+
+
+
+	<script src="script.js">
+	</script>
+</body>
+
 </html>
