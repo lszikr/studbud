@@ -1,0 +1,13 @@
+var ss = document.getElementsByClassName('stopwatch');
+
+[].forEach.call(ss, function (s) {
+    var currentTimer = 0,
+    interval = 0,
+    lastUpdatTime = new Date().getTime,
+    start = s.querySelector('button.start'),
+    stop = s.querySelector('button.stop'),
+    reset = s.querySelector('button.reset'),
+    mins = s.querySelector('span.minutes'),
+    secs = s.querySelector('span.seconds'),
+    cents = s.querySelector('span.centiseconds')
+});

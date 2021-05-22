@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+</head>
+
+<body class="app-container">
+
+  <nav class="top-nav">
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active">Home</a></li>
+        <li class="nav-item"><a href="#page1">Page 1</a></li>
+        <li class="nav-item"><a href="#page2">Page 2</a></li>
+        <li class="nav-item"><a href="#page3">Page 3</a></li>
+      </ul>
+  </nav>
+
+  <div id="home" class="page-container">
+    <h1>StudBud</h1>
+
+    <p>This time with <a href="a72065957fe902f40f1ba688f0450f00">Express</a> + <a href="8d8dc26c6986d8d40d8f3b9fe89723c6">Parcel</a> + <a href="8e6645975e6ba0cb20bed489a75ac873">SASS (SCSS)</a>!</p>
+  </div>
+
+  <div id="page1" class="page-container">
+      <h1>Page 1</h1>
+      <nav class="sub-nav">
+          <ul class="nav-links">
+              <li class="nav-item"><a href="#page1-1" class="active">Page 1-1</a></li>
+              <li class="nav-item"><a href="#page1-2">Page 1-2</a></li>
+              <li class="nav-item"><a href="#page1-3">Page 1-3</a></li>
+          </ul>
+      </nav>
+
+      <div id="page1-1" class="sub-page-container">
+          <h2>Page 1 - 1</h2>
+          <div id="task-grid">
+            <form id="taskform">
+              <label for="task">Task:</label>
+              <input type="text" name="task" id="taskInput" required="">
+        
+              <br>
+            <!-- Date input -->
+              <label for="dueDate">Due Date: </label>
+              <input type="date" name="dueDate" id="dueDateInput">
+              <br>
+            <!-- Time input -->
+            <label for="completionTime">Completion Time: </label>
+              <input type="time" name="completionTime" id="completionTimeInput">
+        
+              <br>
+        
+            <label for="estimatedTime">Estimated completion time (in mins):</label>
+            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+            <!-- Priority -->
+            <br>
+        
+            <label for="priority">Task Priority:</label>
+            <select name="prority" id="priorityInput">
+              <option value="">Select one</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+        
+            <br>
+        
+              <button type="submit">Submit</button>
+            </form>
+            <div id="tasklist">
+                <p id="emptyList">You have not added any tasks yet.</p>
+                <ul></ul>
+            <div>           
+          </div>
+      </div>
+    </div>
+  </div>
+
+      <div id="page1-2" class="sub-page-container" style="f926c980d7a52e9687301095b1087bd2">
+        <h2>Page 1 - 2</h2> 
+        <div id="stopwatch">
+          00:00:00
+      </div>
+    
+      <ul id="buttons">
+          <li><button id="startButton">Start</button></li>
+          <li><button id="stopButton">Stop</button></li>
+          <li><button id="resetButton">Reset</button></li>
+      </ul> 
+      </div>
+
+      <div id="page1-3" class="sub-page-container" style="2042e6aad391b1ddbf93ef2b06ab2270">
+        <h2>Page 1 - 3</h2> 
+        <h1>Music Player</h1>
+
+        <div class="grid">
+        <div class="music-container">
+          <div class="music-info">
+            <h4 id="title">Meditation</h4>
+            <div class="progress-container">
+              <div class="progress"></div>
+            </div>
+            </div>
+
+            <audio src="d534292a7c7196c52b70d31514334721" id="audio"></audio>
+
+            <div class="img-container">
+              <img src="b0b6f4d618b32d3a328eecbf2a6c6664" alt="music-cover" id="cover">
+            </div>
+
+            <div class="navigation">
+              <button id="prev" class="action-btn">
+                  <i class="fas fa-backward"></i>
+              </button>
+              <button id="play" class="action-btn action-btn-big">
+                  <i class="fas fa-play"></i>
+              </button>
+              <button id="next" class="action-btn">
+                  <i class="fas fa-forward"></i>
+              </button>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  
+    
+
+  <div id="page2" class="page-container">
+    <h1>Page 2</h1>
+    <h1>Pomodoro Timer</h1>
+    <div class="clock">
+      <div class="mins">0</div>
+      <div>:</div>
+      <div class="secs">00</div>
+      <svg class="progress-ring" height="120" width="120">
+        <circle class="progress-ring_circle" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"></circle>
+      </svg>
+    </div>
+
+    <div class="btn-group">
+      <button class="start">START FOCUS</button>
+      <button class="pause">PAUSE</button>
+      <button class="reset">RESET</button>
+    </div>
+
+    <form action=".">
+      <input type="number" ，="" value="1" id="focusTime">
+      <input type="number" ，="" value="1" id="breakTime">
+      <button type="submit">Save settings</button>
+    </form>
+  </div>
+
+  <div id="page3" class="page-container">
+    <h1>Page 3</h1>
+  </div>
+
+
+
+
+	<script src="4e6340146f7d0152c44dbd6ccf58b0e0" data-parcel-key="36c365c76e9ae4ac742fad83c2e3469b">
+	</script> 
+</body>
+
+</html>

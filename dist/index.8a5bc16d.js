@@ -445,6 +445,10 @@ id) /*: string*/
 var _componentsNavigation = require('./components/navigation');
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 var _componentsNavigationDefault = _parcelHelpers.interopDefault(_componentsNavigation);
+require('./components/tasklist');
+require('./components/stopwatch');
+require('./components/musicplayer');
+require('./components/pomodoroTimer');
 const links = document.querySelectorAll('.top-nav > ul > li > a');
 const pages = document.querySelectorAll('.page-container');
 var nav = new _componentsNavigationDefault.default(links, pages);
@@ -465,7 +469,7 @@ subNav.links.forEach(link => {
   });
 });
 
-},{"./components/navigation":"2K1cj","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y"}],"2K1cj":[function(require,module,exports) {
+},{"./components/navigation":"2K1cj","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./components/tasklist":"Rj9Cl","./components/musicplayer":"6m8Cd","./components/stopwatch":"4w2wn","./components/pomodoroTimer":"vu1OA"}],"2K1cj":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 class Navigation {
@@ -539,6 +543,311 @@ exports.export = function (dest, destName, get) {
     get: get
   });
 };
+},{}],"Rj9Cl":[function(require,module,exports) {
+const form = document.getElementById("taskform");
+const button = document.querySelector("#taskform > button")
+var taskInput = document.getElementById("taskInput");
+var tasklist = document.getElementById("tasklist");
+
+var dueDateInput = document.getElementById("dueDateInput");
+var completionTimeInput = document.getElementById("completionTimeInput");
+var estimatedTimeInput = document.getElementById("estimatedTimeInput");
+var priorityInput = document.getElementById("priorityInput");
+
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+  let task = taskInput.value;
+  let dueDate = dueDateInput.value;
+  let completionTime = completionTimeInput.value;
+  let estimatedTime = estimatedTimeInput.value;
+  let priorityRating = priorityInput.options[priorityInput.selectedIndex].value;
+  addTask(task, dueDate, estimatedTime, priorityRating, completionTime, false);
+})
+
+var taskListArray = [];
+
+function addTask(taskDescription, dueDate, estimatedTime, priorityRating, completionTime, completionStatus) {
+  let d = new Date();
+  let dateCreated = d.getFullYear();
+  let task = {
+    id: Date.now(),
+    taskDescription,
+    dueDate,
+    dateCreated,
+    estimatedTime,
+    completionTime,
+    priorityRating,
+    estimatedTime,
+    completionStatus
+  };
+  taskListArray.push(task);
+  console.log(taskListArray);
+  renderTask(task);
+}
+
+function renderTask(task){
+    updateEmpty();
+  // Create HTML elements
+  let item = document.createElement("li");
+  item.setAttribute('data-id',task.id);
+  item.innerHTML = "<p>" + task.taskDescription + "</p>";
+
+  tasklist.appendChild(item);
+
+  // Extra Task DOM elements
+  let delButton = document.createElement("button");
+  let delButtonText = document.createTextNode("Delete Task");
+  delButton.appendChild(delButtonText);
+  item.appendChild(delButton);
+
+
+  // Event Listeners for DOM elements
+  delButton.addEventListener("click", function(event){
+    event.preventDefault();
+    console.log(taskListArray);
+    let id = event.target.parentElement.getAttribute('data-id');
+    console.log(id)
+    let index = taskListArray.findIndex(task => task.id === Number(id));
+    removeItemFromArray(taskListArray, index)
+    updateEmpty();
+    item.remove();
+  })
+
+
+  // Clear the input form
+  form.reset();
+}
+
+function removeItemFromArray(arr, index) {
+    if (index > -1){
+        arr.splice(index, 1)
+    }
+    return arr;
+}
+
+function updateEmpty() {
+    if (taskListArray.length > 0){
+        document.getElementById('emptyList').style.display = 'none';
+    } else {
+        document.getElementById('emptyList').style.display = 'block';
+    }
+}
+},{}],"6m8Cd":[function(require,module,exports) {
+const musicContainer = document.querySelector('.music-container')
+const playBtn = document.querySelector('#play')
+const prevBtn = document.querySelector('#prev')
+const nextBtn = document.querySelector('#next')
+const audio = document.querySelector('#audio')
+const progress = document.querySelector('.progress')
+const progressContainer = document.querySelector('.progress-container')
+const title = document.querySelector('#title')
+const cover = document.querySelector('#cover')
+
+//Song Titles
+const songs = ['joy', 'relax', 'meditation']
+
+//Track song in play
+let songIndex = 2
+
+// Loading songs info DOM
+loadSong(songs[songIndex])
+
+
+function loadSong(song) {
+    title.innerText = song
+    audio.src = `music/${song}.mp3`
+    cover.src = `images/${song}.jpg`
+}
+
+function playSong() {
+    musicContainer.classList.add('play')
+    playBtn.querySelector('i.fas').classList.remove('fa-play')
+    playBtn.querySelector('i.fas').classList.add('fa-pause')
+
+    // audio.play()
+}
+
+function pauseSong() {
+    musicContainer.classList.remove('play')
+    playBtn.querySelector('i.fas').classList.add('fa-play')
+    playBtn.querySelector('i.fas').classList.remove('fa-pause')
+
+    // audio.pause()
+}
+
+function prevSong() {
+    songIndex--
+
+    if (songIndex < 0) {
+        songIndex = songs.length - 1
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+function nextSong() {
+    songIndex++
+
+    if (songIndex > songs.length - 1) {
+        songIndex = 0
+    }
+
+    loadSong(songs[songIndex])
+
+    playSong()
+}
+
+function updateProgress(e) {
+    const {duration, currentTime} = e.srcElement
+    const progressPercent = (currentTime / duration) * 100
+    progress.style.width = `${progressPercent}`
+}
+
+playBtn.addEventListener('click', () => {
+    const isPlaying = musicContainer.classList.contains('play')
+    
+    if(isPlaying){
+        pauseSong()
+    } else {
+        playSong()
+    }
+})
+
+prevBtn.addEventListener('click', prevSong)
+nextBtn.addEventListener('click', nextSong)
+
+audio.addEventListener('timeupdate', updateProgress)
+},{}],"4w2wn":[function(require,module,exports) {
+var ss = document.getElementsByClassName('stopwatch');
+
+[].forEach.call(ss, function (s) {
+    var currentTimer = 0,
+    interval = 0,
+    lastUpdatTime = new Date().getTime(),
+    start = s.querySelector('button.start'),
+    stop = s.querySelector('button.stop'),
+    reset = s.querySelector('button.reset'),
+    mins = s.querySelector('span.minutes'),
+    secs = s.querySelector('span.seconds'),
+    cents = s.querySelector('span.centiseconds');
+
+    start.addEventListener('click', startTimer);
+    stop.addEventListener('click', stopTimer);
+    reset.addEventListener('click', resetTimer);
+
+    function pad (n) {
+        return ('00' + n).substr(-2);
+    }
+
+    function update () {
+        var now = new Date().getTime(),
+            dt = now - lastUpdatTime;
+
+        currentTimer += dt;
+
+        var time = new Date(currentTimer);
+
+        mins.innerHTML = pad(time.getMinutes());
+        secs.innerHTML = pad(time.getSeconds());
+        cents.innerHTML = pad(Math.floor(time.getMilliseconds() / 10));
+
+        lastUpdatTime = now;
+    }
+
+function startTimer () {
+    if (!interval) {
+        lastUpdatTime = new Date().getTime();
+        interval = setInterval(update, 1);
+    }
+}
+
+function stopTimer () {
+     clearInterval(interval);
+     interval = 0;
+}
+
+function resetTimer () {
+    stopTimer();
+    
+    currentTimer = 0;
+
+    mins.innerHTML = secs.innerHTML = cents.innerHTML = pad(0);
+
+}
+
+});
+},{}],"vu1OA":[function(require,module,exports) {
+var start = document.getElementById('start');
+var reset = document.getElementById('reset');
+var stop = document.getElementById('stop');
+
+var wm = document.getElementById('w_minutes');
+var ws = document.getElementById('w_seconds');
+
+var bm = document.getElementById('b_minutes');
+var bs = document.getElementById('b_seconds');
+
+var startTimer;
+
+start.addEventListener('click', function(){
+    if(startTimer === undefined){
+        startTimer = setInterval(timer, 1000)
+    } else {
+        alert("Timer is already running");
+    }
+})
+
+reset.addEventListener('click', function(){
+    wm.innerText = 25;
+    ws.innerText = "00";
+
+    bm.innerText = 5;
+    bs.innerText = "00";
+    
+    document.getElementById('counter').innerText = 0;
+    stopInterval()
+    startTimer = undefined;
+})
+
+stop.addEventListener('click', function(){
+    stopInterval()
+    startTimer = undefined;
+})
+
+function timer() {
+    if(ws.innerText != 0){
+       ws.innerText--; 
+    } else if(wm.innerText !=0 && ws.innerText == 0) {
+        ws.innerText =59;
+        wm.innerText--;
+    }
+
+    if(wm.innerText == 0 && ws.innerText == 0){
+        if(bs.innerText != 0){
+            bs.innerText--;
+     } else if(bm.innerText !=0 && bs.innerText == 0) {
+         bs.innerText =59;
+         bm.innerText--;
+     }
+    }
+
+     if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerHTML == 0){
+        wm.innerText == 25;
+        ws.innerText == "00";
+
+        bm.innerText == 5;
+        bs.innerText == "00"
+
+        document.getElementById('counter').innerText++;
+ }
+}
+
+function stopInterval() {
+    clearInterval(startTimer);
+}
+
 },{}]},["27Rzb","4OAbU"], "4OAbU", "parcelRequireb071")
 
 //# sourceMappingURL=index.8a5bc16d.js.map

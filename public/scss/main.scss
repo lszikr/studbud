@@ -1,4 +1,8 @@
-@import "layout.scss"; 
-@import "reset.scss"; 
-@import "typography.scss";  
-@import "components/navigation.scss"; 
+@import 'layout'; 
+@import 'reset'; 
+@import 'typography';  
+@import 'components/navigation'; 
+@import 'components/tasklist'; 
+@import 'components/musicplayer'; 
+@import 'components/stopwatch';
+@import 'components/pomodoroTimer';
