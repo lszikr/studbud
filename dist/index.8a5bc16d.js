@@ -449,6 +449,7 @@ require('./components/tasklist');
 require('./components/stopwatch');
 require('./components/musicplayer');
 require('./components/pomodoroTimer');
+require('./components/board');
 const links = document.querySelectorAll('.top-nav > ul > li > a');
 const pages = document.querySelectorAll('.page-container');
 var nav = new _componentsNavigationDefault.default(links, pages);
@@ -469,7 +470,7 @@ subNav.links.forEach(link => {
   });
 });
 
-},{"./components/navigation":"2K1cj","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./components/tasklist":"Rj9Cl","./components/musicplayer":"6m8Cd","./components/stopwatch":"4w2wn","./components/pomodoroTimer":"vu1OA"}],"2K1cj":[function(require,module,exports) {
+},{"./components/navigation":"2K1cj","./components/tasklist":"Rj9Cl","./components/stopwatch":"4w2wn","./components/musicplayer":"6m8Cd","./components/pomodoroTimer":"vu1OA","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./components/board":"4qIR3"}],"2K1cj":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 class Navigation {
@@ -632,6 +633,65 @@ function updateEmpty() {
         document.getElementById('emptyList').style.display = 'block';
     }
 }
+},{}],"4w2wn":[function(require,module,exports) {
+var ss = document.getElementsByClassName('stopwatch');
+
+[].forEach.call(ss, function (s) {
+    var currentTimer = 0,
+    interval = 0,
+    lastUpdatTime = new Date().getTime(),
+    start = s.querySelector('button.start'),
+    stop = s.querySelector('button.stop'),
+    reset = s.querySelector('button.reset'),
+    mins = s.querySelector('span.minutes'),
+    secs = s.querySelector('span.seconds'),
+    cents = s.querySelector('span.centiseconds');
+
+    start.addEventListener('click', startTimer);
+    stop.addEventListener('click', stopTimer);
+    reset.addEventListener('click', resetTimer);
+
+    function pad (n) {
+        return ('00' + n).substr(-2);
+    }
+
+    function update () {
+        var now = new Date().getTime(),
+            dt = now - lastUpdatTime;
+
+        currentTimer += dt;
+
+        var time = new Date(currentTimer);
+
+        mins.innerHTML = pad(time.getMinutes());
+        secs.innerHTML = pad(time.getSeconds());
+        cents.innerHTML = pad(Math.floor(time.getMilliseconds() / 10));
+
+        lastUpdatTime = now;
+    }
+
+function startTimer () {
+    if (!interval) {
+        lastUpdatTime = new Date().getTime();
+        interval = setInterval(update, 1);
+    }
+}
+
+function stopTimer () {
+     clearInterval(interval);
+     interval = 0;
+}
+
+function resetTimer () {
+    stopTimer();
+    
+    currentTimer = 0;
+
+    mins.innerHTML = secs.innerHTML = cents.innerHTML = pad(0);
+
+}
+
+});
 },{}],"6m8Cd":[function(require,module,exports) {
 const musicContainer = document.querySelector('.music-container')
 const playBtn = document.querySelector('#play')
@@ -719,65 +779,6 @@ prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
 
 audio.addEventListener('timeupdate', updateProgress)
-},{}],"4w2wn":[function(require,module,exports) {
-var ss = document.getElementsByClassName('stopwatch');
-
-[].forEach.call(ss, function (s) {
-    var currentTimer = 0,
-    interval = 0,
-    lastUpdatTime = new Date().getTime(),
-    start = s.querySelector('button.start'),
-    stop = s.querySelector('button.stop'),
-    reset = s.querySelector('button.reset'),
-    mins = s.querySelector('span.minutes'),
-    secs = s.querySelector('span.seconds'),
-    cents = s.querySelector('span.centiseconds');
-
-    start.addEventListener('click', startTimer);
-    stop.addEventListener('click', stopTimer);
-    reset.addEventListener('click', resetTimer);
-
-    function pad (n) {
-        return ('00' + n).substr(-2);
-    }
-
-    function update () {
-        var now = new Date().getTime(),
-            dt = now - lastUpdatTime;
-
-        currentTimer += dt;
-
-        var time = new Date(currentTimer);
-
-        mins.innerHTML = pad(time.getMinutes());
-        secs.innerHTML = pad(time.getSeconds());
-        cents.innerHTML = pad(Math.floor(time.getMilliseconds() / 10));
-
-        lastUpdatTime = now;
-    }
-
-function startTimer () {
-    if (!interval) {
-        lastUpdatTime = new Date().getTime();
-        interval = setInterval(update, 1);
-    }
-}
-
-function stopTimer () {
-     clearInterval(interval);
-     interval = 0;
-}
-
-function resetTimer () {
-    stopTimer();
-    
-    currentTimer = 0;
-
-    mins.innerHTML = secs.innerHTML = cents.innerHTML = pad(0);
-
-}
-
-});
 },{}],"vu1OA":[function(require,module,exports) {
 var start = document.getElementById('start');
 var reset = document.getElementById('reset');
@@ -848,6 +849,49 @@ function stopInterval() {
     clearInterval(startTimer);
 }
 
+},{}],"4qIR3":[function(require,module,exports) {
+const content = document.querySelector('.content');
+
+var request = new XMLHttpRequest();
+
+request.open('GET', './components/tasklist');
+
+request.onload = function() {
+  let data = JSON.parse(this.response);
+
+  if (request.status >= 200 && request.status < 400) {
+    console.log(data[0].taskDescription);
+
+    data.forEach(function(task) {
+      let card = document.createElement('div');
+      card.setAttribute('class', 'card');
+      card.setAttribute('data-tilt', 'true');
+
+      let heading = document.createElement('h1');
+      heading.textContent = task.taskDescription;
+
+      let description = document.createElement('p');
+      description.textContent = task.dueDate;
+
+      card.appendChild(heading);
+      card.appendChild(description);
+
+      content.appendChild(card);
+    })
+
+
+
+
+
+
+  } else {
+    let errorMessage = document.createElement('p');
+    errorMessage.textContent = "Error, unable to process your API Status: " + request.status;
+    content.appendChild(errorMessage);
+  }
+}
+
+request.send()
 },{}]},["27Rzb","4OAbU"], "4OAbU", "parcelRequireb071")
 
 //# sourceMappingURL=index.8a5bc16d.js.map

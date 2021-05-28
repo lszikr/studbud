@@ -3,6 +3,7 @@ import './components/tasklist';
 import './components/stopwatch';
 import './components/musicplayer';
 import './components/pomodoroTimer';
+import './components/board';
 
 const links = document.querySelectorAll('.top-nav > ul > li > a');
 const pages = document.querySelectorAll('.page-container');
