@@ -1,0 +1,2 @@
+!function(){const e=document.querySelectorAll("nav > ul > li > a");var n=new class{constructor(e,n){this.links=e,this.pages=n,this.currentPage=null}getLinks(){console.log(this.links)}setPage(e){this.currentPage=e,console.log(this.currentPage)}getHash(e){return e.href.split("#")[1]}}(e,"");n.getLinks(),n.links.forEach((function(e){e.addEventListener("click",(function(){console.log(n.getHash(e))}))}))}();
+//# sourceMappingURL=index.HASH_REF_f12f294504766d489aa5c3d9684d6f31.js.map

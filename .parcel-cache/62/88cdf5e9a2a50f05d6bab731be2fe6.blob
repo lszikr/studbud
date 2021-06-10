@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <!--Make the website to be usable on both mobile and desktop devices  -->
+	<title>StudBud</title>
+  <link href="4c97b496a5bf977dfd686f645be3b650" rel="stylesheet" type="text/css">
+	<link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div id="root" class="grid-container">
+
+    <header class="header">
+      <em><h1>StudBud</h1></em>
+      <figure class="img-container">
+          <img src="cf792b5f431a126580a52f833480377c" alt="Website logo" width="10%" ,data-tilt="">
+    </figure></header>
+
+  <nav class="top-nav">
+    <!-- <div class="nav-container"> -->
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active">Home</a></li>
+        <li class="nav-item"><a href="#page1">Page 1</a></li>
+        <li class="nav-item"><a href="#page2">Page 2</a></li>
+        <li class="nav-item"><a href="#page3">Page 3</a></li>
+        <li class="nav-item"><a href="#page4">Page 4</a></li>
+      </ul>
+    <!-- </div> -->
+  </nav>
+  <main class="content">
+  <div id="home" class="page-container">
+    <h1>StudBud</h1>
+
+    <p>This time with <a href="a72065957fe902f40f1ba688f0450f00">Express</a> + <a href="8d8dc26c6986d8d40d8f3b9fe89723c6">Parcel</a> + <a href="8e6645975e6ba0cb20bed489a75ac873">SASS (SCSS)</a>!</p>
+  </div>
+
+  <div id="page1" class="page-container">
+      <h1>Page 1</h1>
+      <nav class="sub-nav">
+          <ul class="nav-links">
+              <li class="nav-item"><a href="#page1-1" class="active">Page 1-1</a></li>
+              <li class="nav-item"><a href="#page1-2">Page 1-2</a></li>
+              <li class="nav-item"><a href="#page1-3">Page 1-3</a></li>
+          </ul>
+      </nav>
+
+      <div id="page1-1" class="sub-page-container">
+          <h2>Page 1 - 1</h2>
+          <div id="task-grid">
+            <form id="taskform">
+              <label for="task">Task:</label>
+              <input type="text" name="task" id="taskInput" required="">
+        
+              <br>
+            <!-- Date input -->
+              <label for="dueDate">Due Date: </label>
+              <input type="date" name="dueDate" id="dueDateInput">
+              <br>
+            <!-- Time input -->
+            <label for="completionTime">Completion Time: </label>
+              <input type="time" name="completionTime" id="completionTimeInput">
+        
+              <br>
+        
+            <label for="estimatedTime">Estimated completion time (in mins):</label>
+            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+            <!-- Priority -->
+            <br>
+        
+            <label for="priority">Task Priority:</label>
+            <select name="prority" id="priorityInput">
+              <option value="">Select one</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+        
+            <br>
+        
+              <button type="submit">Submit</button>
+            </form>
+            <div id="tasklist">
+                <p id="emptyList">You have not added any tasks yet.</p>
+                <ul></ul>
+            <div>           
+          </div>
+      </div>
+    </div>
+  </div>
+
+      <div id="page1-2" class="sub-page-container" style="2042e6aad391b1ddbf93ef2b06ab2270">
+        <h2>Page 1 - 2</h2>
+
+        <div class="stopwatch">
+          <div class="display">
+            <span class="minutes">00</span><span class="seconds">00</span><span class="centiseconds">00</span>
+          </div>
+
+          <div class="controls">
+            <button class="start">Start</button>
+            <button class="stop">Stop</button>
+            <button class="reset">Reset</button>
+          </div>
+      </div>
+    </div>
+
+      <div id="page1-3" class="sub-page-container" style="d03460831e867dde5e911a50f27e9b26">
+        <h2>Page 1 - 3</h2> 
+        <h1>Music Player</h1>
+
+        <div class="grid">
+        <div class="music-container">
+          <div class="music-info">
+            <h4 id="title">meditation</h4>
+            <div class="progress-container">
+              <div class="progress"></div>
+            </div>
+            </div>
+
+            <audio src="8463d6ede50036b2f9ea27658dc986eb" id="audio"></audio>
+
+            <div class="img-container">
+              <img src="5e4e0fff37409e7779bb0c6f72c64b99" alt="music-cover" id="cover">
+            </div>
+
+            <div class="navigation">
+              <button id="prev" class="action-btn">
+                  <i class="fas fa-backward"></i>
+              </button>
+              <button id="play" class="action-btn action-btn-big">
+                  <i class="fas fa-play"></i>
+              </button>
+              <button id="next" class="action-btn">
+                  <i class="fas fa-forward"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+  <div id="page2" class="page-container">
+    <h1>Page 2</h1>
+    <h1>Pomodoro Timer</h1>
+    <div class="grid">
+    <div id="container1">
+      <div class="displayTimer">
+        <!-- <div class="title">
+          <p id="work" class="label">Work:</p>
+      </div>
+        <div class="title">
+          <p id="break" class="label">Break:</p>
+      </div>
+        <div class="title">
+          <p id="cycles" class="label">Cycles:</p>
+        </div> -->
+
+        <div id="work-timer" class="timer">
+          <p id="work" class="label">Work:</p>
+          <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <div id="cycles" class="timer">
+          <p id="break" class="label">Break:</p>
+          <p id="counter">0</p>
+        </div>
+
+        <div id="break-timer" class="timer">
+          <p id="cycles" class="label">Cycles:</p>
+          <p id="b_minutes">25</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+        </div>
+      </div>
+    
+
+      <div class="controls">
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Pause</button>
+        <button id="reset" class="btn">Reset</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+    <div id="page3" class="page-container">
+      <h1>Page 3</h1>
+    </div>
+
+    <div id="page4" class="page-container">
+      <h1>Page 4</h1>
+  </div>
+  </main></div>
+
+
+</body>
+
+
+<footer class="footer">
+  <p>Made with <a href="b775318a38d3af58cabf74b546c907f4">WORDSAPI</a>.</p>
+</footer>
+
+
+
+
+	<script src="4e6340146f7d0152c44dbd6ccf58b0e0" data-parcel-key="4cbe6970eb1d88d3b1974a928016662f">
+	</script> 
+
+
+</html>

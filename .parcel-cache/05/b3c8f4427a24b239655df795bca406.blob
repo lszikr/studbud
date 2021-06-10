@@ -1,0 +1,24 @@
+const el = document.querySelector(".clock");
+const bell = document.querySelector("audio");
+
+const mindly = document.querySelector(".mins");
+const secdiv = document.querySelector(".secs");
+
+const startBtn = document.querySelector(".start");
+localStorage.setItem("btn", "focus");
+
+let initial, totalsecs, perc, paused, mins, seconds;
+
+startBtn.addEventListener("click", () => {
+    let btn = localStorage.getItem("btn");
+
+    if (btn  = "focus") {
+        mins = +localStorage.getItem("focusTime");
+    } else {
+        mins = +localStorage.getItem("breakTime");
+    }
+
+    seconds = mins * 60;
+    totalsecs = mins * 60;
+
+})

@@ -1,0 +1,24 @@
+{
+  "name": "npm_studbud",
+  "version": "1.0.0",
+  "description": "study web app helps users to organise their study schedules",
+  "main": "dist/index.html",
+  "scripts": {
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Songzhe Liu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sass": "^1.32.12"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "autoprefixer": "^10.2.5",
+    "parcel": "^2.0.0-beta.2",
+    "postcss": "^8.2.15"
+  }
+}
