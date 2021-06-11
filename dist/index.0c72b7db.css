@@ -210,7 +210,7 @@ nav ul li:not(.active):hover:after {
   grid-area: tasklist;
 }
 .grid {
-  height: 100vh;
+  height: 50vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -226,55 +226,6 @@ nav ul li:not(.active):hover:after {
   position: relative;
   margin: 100px 0;
   z-index: 10;
-}
-.img-container {
-  position: relative;
-  width: 150px;
-}
-.img-container::after {
-  content: "";
-  background-color: white;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -60%);
-}
-.img-container img {
-  width: inherit;
-  height: 150px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  -webkit-animation: rotate 3s linear infinite;
-          animation: rotate 3s linear infinite;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-.music-container.play .img-container img {
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
-}
-@-webkit-keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 .navigation {
   display: flex;
@@ -467,5 +418,63 @@ nav ul li:not(.active):hover:after {
 }
 .controls #reset:hover {
   background-color: #6A5ACD;
+}
+.card {
+  position: relative;
+  margin: 1rem;
+  padding-bottom: calc(2em + 60px);
+  background: white;
+  box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s linear;
+}
+.card:hover {
+  box-shadow: 2px 8px 45px rgba(0, 0, 0, 0.25);
+}
+.card h1 {
+  text-align: center;
+  padding: 1.5rem 2.5rem;
+  background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  color: white;
+}
+.card p {
+  padding: 0 2em;
+  margin: 0;
+}
+.card button {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+  display: block;
+  margin: 1em 0;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid #666;
+  border-radius: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.card button:hover {
+  background-color: #fef9d7;
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+}
+.card button:active, .card button:focus {
+  outline: 0;
+}
+.card:nth-child(n) h1 {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+.card:nth-child(2n) h1 {
+  background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+}
+.card:nth-child(3n) h1 {
+  background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
 }
 /*# sourceMappingURL=index.0c72b7db.css.map */

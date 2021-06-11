@@ -4,6 +4,7 @@ import './components/stopwatch';
 import './components/musicplayer';
 import './components/pomodoroTimer';
 import './components/board';
+import './components/dictionary';
 
 const links = document.querySelectorAll('.top-nav > ul > li > a');
 const pages = document.querySelectorAll('.page-container');

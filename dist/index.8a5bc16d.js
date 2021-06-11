@@ -450,6 +450,7 @@ require('./components/stopwatch');
 require('./components/musicplayer');
 require('./components/pomodoroTimer');
 require('./components/board');
+require('./components/dictionary');
 const links = document.querySelectorAll('.top-nav > ul > li > a');
 const pages = document.querySelectorAll('.page-container');
 var nav = new _componentsNavigationDefault.default(links, pages);
@@ -470,7 +471,7 @@ subNav.links.forEach(link => {
   });
 });
 
-},{"./components/navigation":"2K1cj","./components/tasklist":"Rj9Cl","./components/stopwatch":"4w2wn","./components/musicplayer":"6m8Cd","./components/pomodoroTimer":"vu1OA","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./components/board":"4qIR3"}],"2K1cj":[function(require,module,exports) {
+},{"./components/navigation":"2K1cj","./components/tasklist":"Rj9Cl","./components/stopwatch":"4w2wn","./components/musicplayer":"6m8Cd","./components/pomodoroTimer":"vu1OA","./components/board":"4qIR3","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","./components/dictionary":"2aL5o"}],"2K1cj":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 class Navigation {
@@ -670,6 +671,8 @@ var ss = document.getElementsByClassName('stopwatch');
         lastUpdatTime = now;
     }
 
+    // timer updates
+
 function startTimer () {
     if (!interval) {
         lastUpdatTime = new Date().getTime();
@@ -677,10 +680,14 @@ function startTimer () {
     }
 }
 
+// start function for user clicks
+
 function stopTimer () {
      clearInterval(interval);
      interval = 0;
 }
+
+// stop function for user clicks
 
 function resetTimer () {
     stopTimer();
@@ -690,6 +697,8 @@ function resetTimer () {
     mins.innerHTML = secs.innerHTML = cents.innerHTML = pad(0);
 
 }
+
+// reset function for user clicks
 
 });
 },{}],"6m8Cd":[function(require,module,exports) {
@@ -724,7 +733,6 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play')
     playBtn.querySelector('i.fas').classList.add('fa-pause')
 
-    // audio.play()
 }
 
 function pauseSong() {
@@ -732,7 +740,6 @@ function pauseSong() {
     playBtn.querySelector('i.fas').classList.add('fa-play')
     playBtn.querySelector('i.fas').classList.remove('fa-pause')
 
-    // audio.pause()
 }
 
 function prevSong() {
@@ -800,6 +807,8 @@ start.addEventListener('click', function(){
     }
 })
 
+// start function for user clicks
+
 reset.addEventListener('click', function(){
     wm.innerText = 25;
     ws.innerText = "00";
@@ -812,10 +821,15 @@ reset.addEventListener('click', function(){
     startTimer = undefined;
 })
 
+
+// reset function for user clicks
+
 stop.addEventListener('click', function(){
     stopInterval()
     startTimer = undefined;
 })
+
+// stop function for user clicks
 
 function timer() {
     if(ws.innerText != 0){
@@ -845,12 +859,14 @@ function timer() {
  }
 }
 
+// timer displays
+
 function stopInterval() {
     clearInterval(startTimer);
 }
 
 },{}],"4qIR3":[function(require,module,exports) {
-const content = document.querySelector('.content');
+const board = document.querySelector('.board');
 
 var request = new XMLHttpRequest();
 
@@ -876,7 +892,7 @@ request.onload = function() {
       card.appendChild(heading);
       card.appendChild(description);
 
-      content.appendChild(card);
+      board.appendChild(card);
     })
 
 
@@ -887,11 +903,51 @@ request.onload = function() {
   } else {
     let errorMessage = document.createElement('p');
     errorMessage.textContent = "Error, unable to process your API Status: " + request.status;
-    content.appendChild(errorMessage);
+    board.appendChild(errorMessage);
   }
 }
 
 request.send()
+},{}],"2aL5o":[function(require,module,exports) {
+// var searchButton = document.getElementById("searchButton");
+// searchButton.addEventListener('click', function(event) {
+//     wordSearch();
+// });
+
+// var reloadButton = document.getElementById("reloadButton");
+// reloadButton.addEventListener('click', function(event) {
+//     reloadPage();
+// });
+
+// function reloadPage() {
+//     location.reload();
+// }
+
+// function wordSearch() {
+//     document.getElementById('searchResult').style.visibility = 'visible';
+
+//     var word = document.getElementById('word');
+//     var definition = document.getElementById('definition');
+//     var example = document.getElementById('example');
+//     var synonym = document.getElementById('synonym');
+
+//     var wordToSearch = document.getElementById('searchBox').Value;
+
+
+//     var request = new XMLHttpRequest();
+//     request.open('GET', 'https://developer.oxforddictionaries.com/documentation#!/Entries/get_entries_source_lang_word_id');
+//     request.onload = function () {
+//         var data = JSON.parse(this.response);
+//         if (request.status >= 200 && request1.status < 400) {
+//             var i = Math.ceil(Math.random() * 10);      //  get a random number from 1 to 10
+//             word.innerHTML = data[i].word;      //  get a random definition
+//             definition.innerHTML = data[i].text;
+//         } else {
+//             word.innerHTML = "Error";
+//             definition.innerHTML = "Error";
+//         }
+//     }
+//     request.send();
 },{}]},["27Rzb","4OAbU"], "4OAbU", "parcelRequireb071")
 
 //# sourceMappingURL=index.8a5bc16d.js.map

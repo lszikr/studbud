@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <!--Make the website to be usable on both mobile and desktop devices  -->
+	<title>StudBud</title>
+  <link href="4c97b496a5bf977dfd686f645be3b650" rel="stylesheet" type="text/css">
+	<link href="ac2b17b88ef0ab3e3e3316d5a6be3892" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <div id="root" class="grid-container">
+
+    <header class="header">
+      <em><h1>StudBud</h1></em>
+      <figure class="img-container">
+          <img src="2fe0d60b34a31eedd087916e3d51f54c" alt="Website logo" width="10%" ,data-tilt="">
+      </figure>
+    </header>
+
+  <nav class="top-nav">
+    <!-- <div class="nav-container"> -->
+      <ul class="nav-links">
+        <li class="nav-item"><a href="#home" class="active">Home</a></li>
+        <li class="nav-item"><a href="#page1">Task List</a></li>
+        <li class="nav-item"><a href="#page2">Stopwatch Timer</a></li>
+        <li class="nav-item"><a href="#page3">Music Player</a></li>
+        <li class="nav-item"><a href="#page4">External Board</a></li>
+      </ul>
+    <!-- </div> -->
+  </nav>
+
+  <main class="content">
+  <div id="home" class="page-container">
+    <h1>Introduction to website</h1>
+
+    <figure class="img-container">
+    <img src="e0debda1b14291ccf43fd0ae22462bec" alt="intro img" width="33%">
+
+    <p>Welcome to StudBud ! Our website aims to provide high quality service for students who need additional tools during their studies. To better help students in exploring their potentials and achieving success in their studies. Especially for senior students those are under a competitive and stressful situation. StudBud is definitely the most satisfying website you could find over the internet. It clearly outlines the planning tools and contents tools and you can easily navigate to each of them.</p>
+    <br>
+    <b><h3>The primary tools include:</h3></b>
+    <br>
+    <ul>
+      <li>Task List</li>
+      <li>Stopwatch Timer</li>
+      <li>Music Player</li>
+    </ul>
+    <br>
+    <b><h3>The secondary tools include:</h3></b>
+    <ul>
+      <li>Pomodoro Timer</li>
+      <li>Kanban Board</li>
+      <li>Dictionary</li>
+    </ul>
+    <br>
+
+    <p>Our study tools will elevate your study abilities as perimission slips, allowing you to feel supported physically, mentally and spiritually. It is acceptable for you to experience learning difficulties, but don't worry, all study tools on our wesbite will equip you with power and strength. One of them will perfect address your needs.</p>
+    <br>
+    <p>Instead of waiting, try them out now.</p>
+    
+  </figure></div>
+
+  <div id="page1" class="page-container">
+      <h1>Task List</h1>
+      <p>Feeling anxious about the amount of tasks you are given by school? Here's the opportunity for you to figure them out in an organisable order. With key attributes layed out, you are now capable of recording all your planned tasks according to their priorities. </p>
+      <br>
+          <div id="task-grid">
+            <form id="taskform">
+              <label for="task">Task:</label>
+              <input type="text" name="task" id="taskInput" required="">
+        
+              <br>
+            <!-- Date input -->
+              <label for="dueDate">Due Date: </label>
+              <input type="date" name="dueDate" id="dueDateInput">
+              <br>
+            <!-- Time input -->
+            <label for="completionTime">Completion Time: </label>
+              <input type="time" name="completionTime" id="completionTimeInput">
+        
+              <br>
+        
+            <label for="estimatedTime">Estimated completion time (in mins):</label>
+            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+            <!-- Priority -->
+            <br>
+        
+            <label for="priority">Task Priority:</label>
+            <select name="prority" id="priorityInput">
+              <option value="">Select one</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+        
+            <br>
+        
+              <button type="submit">Submit</button>
+            </form>
+            <div id="tasklist">
+                <p id="emptyList">You have not added any tasks yet.</p>
+                <ul></ul>
+            <div>           
+          </div>
+      </div>
+    </div>
+      </div>
+
+  <div id="page2" class="page-container">
+    <div class="grid">
+    <h1>Stopwatch Timer</h1>
+    <p>Stopwatch timer is essential for a time organiser to track their study progress. It assists one to accurately set up a particular experimental test. Which could be beneficial in multiple disciplines, especially in mathematical related areas such as: medicine, science, IT, engineering etc.  </p>
+
+    <div class="stopwatch">
+      <div class="display">
+        <span class="minutes">00</span><span class="seconds">00</span><span class="centiseconds">00</span>
+      </div>
+
+      <div class="controls">
+        <button class="start">Start</button>
+        <button class="stop">Stop</button>
+        <button class="reset">Reset</button>
+      </div>
+  </div>
+  </div>
+  <br>
+  <figure class="img-container">
+  <img src="32c204d2c9190d747cd04230d33e406c" alt="intro img" width="33%" class="center">
+</figure></div>
+    <div id="page3" class="page-container">
+      <h1>Music Player</h1>
+      <p>Working in a comfortable environment will maximisely boost your study efficiency and listening to relaxing musics is the most intelligent choice you could make. Students who study under pressure are most likely to perform worse than those in a balanced state of being. Be ready to try our musics set, they are the premium selections to be included. </p>
+
+        <div class="grid">
+        <div class="music-container">
+          <div class="music-info">
+            <h4 id="title">meditation</h4>
+            <div class="progress-container">
+              <div class="progress"></div>
+            </div>
+            </div>
+
+            <audio src="8463d6ede50036b2f9ea27658dc986eb" id="audio"></audio>
+
+            <div class="img-container">
+              <img src="5e4e0fff37409e7779bb0c6f72c64b99" alt="music-cover" id="cover">
+            </div>
+
+            <div class="navigation">
+              <button id="prev" class="action-btn">
+                  <i class="fas fa-backward"></i>
+              </button>
+              <button id="play" class="action-btn action-btn-big">
+                  <i class="fas fa-play"></i>
+              </button>
+              <button id="next" class="action-btn">
+                  <i class="fas fa-forward"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="page4" class="page-container">
+        <main class="board">
+          <!-- Load data from tasklist local storage and display cards -->
+        </main>
+  </div>
+</main>
+
+  <aside class="aside">
+    <!-- Internal aside container for sticky positioning -->
+    <div class="aside-container">
+      <h2>Secondary Features</h2>
+      <nav class="sub-nav">
+        <ul class="nav-links">
+            <li class="nav-item"><a href="#page1-1" class="active">Pomodoro Timer</a></li>
+            <li class="nav-item"><a href="#page1-2">Kanban Board</a></li>
+            <li class="nav-item"><a href="#page1-3">Dictionary</a></li>
+        </ul>
+    </nav>
+
+    <div id="page1-1" class="sub-page-container">
+      <h2>Pomodoro Timer</h2>
+    <div class="grid">
+    <div id="container1">
+      <div class="displayTimer">
+
+        <div id="work-timer" class="timer">
+          <p id="work" class="label">Work:</p>
+          <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <div id="cycles" class="timer">
+          <p id="break" class="label">Break:</p>
+          <p id="counter">0</p>
+        </div>
+
+        <div id="break-timer" class="timer">
+          <p id="cycles" class="label">Cycles:</p>
+          <p id="b_minutes">25</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+        </div>
+      </div>
+    
+
+      <div class="controls">
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Pause</button>
+        <button id="reset" class="btn">Reset</button>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  
+        <div id="page1-2" class="sub-page-container" style="ff2b66826db9007c40d58d90b8bfeb7e">
+          <h2>See external page on left *__* </h2>
+      </div>
+  
+        <div id="page1-3" class="sub-page-container" style="021a9f877a77803d75002b0e95d2b7cf">
+          <section>
+            <form class="searchForm">
+              <h2>Word Dictionary</h2>
+              <input type="search" name="searchBox" id="searchBox" placeholder="word to search">
+              <br>
+              <input type="button" name="submit" value="submit" id="searchButton">
+              <input type="reset" value="reset" id="reloadPage">
+            </form>
+      
+            <div class="searchResult" id="searchResult">
+              <div>
+                <h3>Word</h3>
+                <p id="word"></p>
+              </div>
+              <div>
+                <h3>Definition</h3>
+                <p id="definition"></p>
+              </div>
+              <div>
+                <h3>Example</h3>
+                <p id="example"></p>
+              </div>
+              <div>
+                <h3>Synonym</h3>
+                <p id="synonym"></p>
+              </div>
+            </div>
+          </section>
+          </div>
+      
+    </div>
+  </aside>
+  </div>
+
+
+<footer class="footer">
+  <em><b><p>Study with love and care.</p></b></em>
+</footer>
+
+
+
+
+	<script src="4e6340146f7d0152c44dbd6ccf58b0e0" data-parcel-key="f4d5a0a75ee11012ef4fb4f76974fedf">
+	</script> 
+</body>
+
+</html>

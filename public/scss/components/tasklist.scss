@@ -5,6 +5,8 @@
     grid-template-areas: "taskform tasklist";
 }
 
+// grid set up
+
 #taskform {
     grid-area: taskform;
     max-width: 300px;
@@ -14,6 +16,8 @@
         width: 100%;
     }
 }
+
+// form frame
 
 #tasklist {
     grid-area: tasklist;
